@@ -82,7 +82,7 @@ main() {
 
     # 提交信息使用单引号
     COMMIT_MSG="Auto commit: $(date '+%Y-%m-%d %H:%M:%S')"
-    git_command "commit -m '$COMMIT_MSG'"
+    git_command "commit -m'$COMMIT_MSG'"
 
     git_command "push $REMOTE $BRANCH"
     log "SUCCESS" "操作成功完成"
