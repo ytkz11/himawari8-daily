@@ -117,15 +117,16 @@
         }
     </style>
 </head>
-<body>
-    <nav class="navbar">
+<bodyi>
+
+<nav class="navbar">
         <h1>中国云图播放器</h1>
     </nav>
 
     <div class="container">
         <div class="video-wrapper">
-            <video controls playsinline preload="metadata">
-                <source src="https://github.com/ytkz11/himawari8-daily/tree/master/video/1.mp4" type="video/mp4">
+            <video controls playsinline preload="metadata" id="cloudVideo">
+                <source id="videoSource" type="video/mp4">
                 您的浏览器不支持视频播放功能，请尝试升级浏览器。
             </video>
         </div>
@@ -135,5 +136,22 @@
             <p>这是每日更新的中国区域云图视频，展示天气变化趋势。</p>
         </div>
     </div>
+    <script>
+        // 获取当前日期
+        const today = new Date();
+        const month = today.getMonth() + 1; // 月份从0开始，所以加1
+        const day = today.getDate();
+
+        // 构建视频文件名
+        const videoFileName = `output_${month}_${day}.mp4`;
+
+        // 设置视频源
+        const videoSource = document.getElementById('videoSource');
+        videoSource.src = `https://raw.githubusercontent.com/ytkz11/himawari8-daily/master/video/${videoFileName}`;
+
+        // 重新加载视频
+        const video = document.getElementById('cloudVideo');
+        video.load();
+    </script>
 </body>
 </html>
